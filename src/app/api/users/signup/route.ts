@@ -6,7 +6,7 @@ import { sendEmail } from "@/helpers/mailer";
  connect()
 
 
-export async function POST(request: NextRequest){
+export async function POST(request: NextRequest):Promise<NextResponse>{
 
     try{
     const reqBody=await request.json();
@@ -36,7 +36,6 @@ return NextResponse.json({
 })
 
     } catch(error:any){
-        return NextResponse.json({"dgssd":error.message}),
-        {status:500}
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
