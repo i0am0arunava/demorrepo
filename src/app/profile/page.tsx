@@ -1,152 +1,161 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
-
-import axios from "axios"
-import { log } from "console"
-import Link from "next/link"
-import {useRouter} from 'next/navigation'
-import { useState } from "react"
 import "./sport.css"
-import { FaVideo } from "react-icons/fa6";
-import { IoIosSearch } from "react-icons/io";
-import React, { useEffect, useRef } from 'react';
-import { MdCreateNewFolder } from "react-icons/md";
-import { IoCreateOutline } from "react-icons/io5";
-import { MdPersonalVideo } from "react-icons/md";
-import { CiVideoOn } from "react-icons/ci";
-import { VscLibrary } from "react-icons/vsc";
-import { SiSololearn } from "react-icons/si";
-export default function Profile(){ 
-    const router=useRouter()
-    const repeatItems = (parentEl:any, total = 0) => {
-        const items = [...parentEl.children];
-        console.log(items)
-        for (let i = 0; i <= total - 1; ++i) {
-            var cln = items[i].cloneNode(true);
-            parentEl.appendChild(cln);
-        }
-    };
-    
-    const logout=async ()=>{
-        try{
-           await  axios.get('/api/users/logout')
-           router.push("/login")
-        }catch(err){
-            console.log(err)
-        }
-        }
-    
-    const scrollingDivRef = useRef<HTMLDivElement>(null);
-    
-      useEffect(() => {
-        // Execute repeatItems after the component has mounted
-        repeatItems(scrollingDivRef.current, 4);
-    
-        // Add a scroll event listener to the scrolling-div
-        const handleScroll = () => {
-          // Call repeatItems when scrolling occurs
-          repeatItems(scrollingDivRef.current, 4);
-        };
-    
-        scrollingDivRef.current?.addEventListener('scroll', handleScroll);
-    
-        // Cleanup the event listener on component unmount
-        return () => {
-          scrollingDivRef.current?.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
-    
-      return (
-    
-        
+import { useState } from 'react'
+import wessImage from './wess.png';
+import Image from 'next/image';
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
     <>
-    <body>
-        <div className="headder">
-            <div className="icone mt-5"><div className="icone ml-4"><SiSololearn /> </div> </div>
-            <div className="para">
-                <p>Microsoft Store</p>
-            </div>
-         
-            <div className="search-bar">
-                <div className="hoel-search-bar"> 
-                    <div className="input-1">
-                        <input type="text" placeholder="Search apps, Games, movies, and more"/>
-                    </div>
-                    <div className="search-icone mt-3 mr-2">
-                    <IoIosSearch />
-                    </div>
-                </div>
-                <div className="login">
-              <p>AA</p>
-             
-            </div>
-            <div style={{ marginLeft: '20px', marginTop: '10px' }}> {/* Adding more gap and adjusting top */}
-                <button className="login-button" onClick={logout}>LogOut</button>
-              </div>
-            </div>
+      <div className="sub1">
+        <div className="nav">
+          <div className="logo"></div>
+          <div className="home"></div>
+          <div className="contact"></div>
+          <div className="signup">signup</div>
+          <div className="signin">signin</div>
         </div>
-    
-    
-        <div className="hole-content">
-            <div className="side-bar">
-            <Link href="/room">  <div className="home-icone">
-                <CiVideoOn />
-                    <p>conferance</p>
-                </div></Link>
+        <div className="image">
+            <div className="left">
+              <div className="car"></div>
+              <div className="paragr"></div>
+            </div>
+            <div className="a1"></div>
+            <div className="a2"></div>
+            <div className="a3"></div>
+            <div className="a4"></div>
+            <div className="right"> <div className="dotted"></div>
+            <div className="down">
+              <div className="paragraph"></div>
+              <div className="button"><div className="register"> regiister only in $999</div></div>
               
-                <div className="apps-icone">
-                <IoCreateOutline />
-                    <p>Create</p>
-                </div>
-                <div className="game-icone">
-                <MdPersonalVideo />
-                    <p>My course</p>
-                </div>
-                <div className="game-icone mt-80">
-                <VscLibrary />
-                    <p>Library</p>
-                </div>
             </div>
-    
+            
+            </div>
            
+        </div>
+      </div>
+      
+      <div className="sub2">
+  <div ></div>
+  <div className="s1"></div>
+    <div className="s2"></div>
+    <div className="s3"></div>
+  <div className="arrow"></div>
+  <div className="image1"></div>
+  <div className="steps">
+    <div className="work">how it works</div>
+    <div className="line">Simple Steps to get Started</div>
     
-            <div className="scrolling-div" ref={scrollingDivRef}>
-            
-            
-                    <div className="microsoft-office">
-                        <h2>Microsoft Office</h2>
-                    </div>
+  </div>
+</div>
+<div className="sub3">
+  <div className="partner">What our partner says</div>
+  <div className="ter">Testimonials</div>
+  <div className="para"></div>
+  <div className="profile"></div>
+  <div className="bike"></div>
+</div>
+      
+      <div className="sub4">
+
+
+        <div className="pol">
+        <span className="border-span">
+        <div className="join"></div>
+        <div className="ready"></div>
+        <div className="para"></div>
+        <div className="screen"></div>
           
-          
-    
-                <div className="car-race">
-    
-                </div>
-                <div className="pc-game">
-    
-                </div>
-                <div className="star">
-    
-                </div>
+          </span> 
+      
+        </div>
+        <div className="sq">
+          <div className="freq"></div>
+          <div className="got"></div>
+          <div className="table"></div>
+        </div>
+      </div>
+
+
+<div className="sub5">
+
+<div className="upper-footer">
+    <p>Drive your Success with MyFastX</p>
+    <h1>Join Us as a Partner Driver</h1>
+    <p className="ii-para">Are you a vehicle owner looking for new opportunities? Join MyFastX today and become part of
+        a dynamic <br />network of drivers. With us, you'll enjoy flexible work hours, competitive earnings, and the
+        satisfaction of <br /> delivering smiles across the city.</p>
+    <div className="button">Register now for just Rs. 999!</div>
+</div>
+<div className="lower-footer">
+    <div className="upper-main">
+        <div className="left-half">
+            <div className="imge"></div>
+            <p>MyFastX is a leading logistics platform that provides hyper-local, on- <br /> demand delivery solutions
+                for individuals and businesses. Whether <br />you need a delivery boy for your shop or to ship items
+                items within <br /> city, MyFastX is your trusted partner, making delivery effortless and
+                <br />convenient. With a mission to revolutionize logistics through <br />innovation and technology,
+                MyFastX is committed to providing <br />seamless, end-to-end delivery solutions that exceed customer
+                <br /> expectations.
+            </p>
+            <div className="icone">
+                <i className="fa-solid fa-house-chimney"></i>
+                <p>Nayagon, Nimi Vihar, Sector 89, Noida Phase 02, Noida</p>
             </div>
-            <button className="arrow left-arrow">&#10094;</button>
-            <button className="arrow right-arrow">&#10095;</button>
-    
-            <div className="lower-wit">
-            <div className="whats"></div>
-            <div className="instagram"></div>
-            <div className="telegram"></div>
-            <div className="netflix"></div>
-            <div className="spotify"></div>
-            <div className="vlc"></div>
+            <div className="contact">
+                <i className="fa-regular fa-envelope"></i>
+                <p>care@myfastx.com <br />+91 8961310988</p><br />
+            </div>
         </div>
-            
+        <div className="right-half">
+            <div className="col-1">
+                <h4>Company</h4>
+                <p>About Us</p>
+                <p>What we Do?</p>
+                <p>Investors</p>
+                <p>Press Release</p>
+                <p>Careers</p>
+                <p>Pricing Details</p>
+            </div>
+            <div className="col-2">
+                <h4>Policies</h4>
+                <p>Terms And Conditions</p>
+                <p>Privacy Policy</p>
+                <p>Cookie Policy</p>
+                <p>Fraud Disclaimer</p>
+            </div>
+            <div className="col-3">
+                <h4>Help</h4>
+                <p>Restricted Items</p>
+                <p>Parcel size and weight guide</p>
+                <p>Packaging guide</p>
+            </div>
+            <div className="col-4">
+                <h4>Support</h4>
+                <p>FAQ</p>
+                <p>Customer Care</p>
+                <p>Driver Terms and Conditions</p>
+                <p>Packaging Instructions</p>
+            </div>
         </div>
-       
-        
-    </body>
+    </div>
+    <div className="last-main">
+        <h4>Our Presence</h4>
+        <p>Delhi  Noida Ghaziabad  Gurugram  Faridabad  Bahadurgarh  Kolkata</p>
+    </div>
+    <div className="final-last">
+        <p>&copy;2024 MyFastX Technologies Pvt Ltd, All rights reserved</p>
+        <p>CIN: U52219UP2023PTC192260</p>
+    </div>
+</div>
+
+</div>
     </>
-    
-      )
-    }
+  )
+}
+
+export default App
